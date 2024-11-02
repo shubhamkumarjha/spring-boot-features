@@ -18,11 +18,11 @@ public class Booking implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade ={ CascadeType.PERSIST,CascadeType.MERGE}, targetEntity = User.class)
+    @OneToOne(fetch = FetchType.LAZY, targetEntity = User.class)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade ={ CascadeType.PERSIST,CascadeType.MERGE}, targetEntity = Movie.class)
+    @OneToOne(fetch = FetchType.LAZY, targetEntity = Movie.class)
     @JoinColumn(name = "movie_id")
     private Movie movie;
 

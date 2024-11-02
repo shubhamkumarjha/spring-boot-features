@@ -12,5 +12,5 @@ import java.util.Optional;
 public interface MovieRepository extends JpaRepository<Movie,Long> {
     @Override
     Optional<Movie> findById(Long id);
-    Optional<List<Movie>> findByName(Long name);
+    Optional<List<Movie>> findByName(String name);
 }
