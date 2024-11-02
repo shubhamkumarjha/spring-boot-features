@@ -2,6 +2,8 @@ package com.nexo.springfeatures.dao;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -18,11 +20,11 @@ public class Booking implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToOne(fetch = FetchType.LAZY, targetEntity = User.class)
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = User.class)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToOne(fetch = FetchType.LAZY, targetEntity = Movie.class)
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Movie.class)
     @JoinColumn(name = "movie_id")
     private Movie movie;
 
@@ -35,11 +37,11 @@ public class Booking implements Serializable {
     @Column(name = "status")
     private String status;
 
-    @CreatedDate
+    @CreationTimestamp
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @LastModifiedDate
+    @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
