@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "booking/1.0.0/user")
+@RequestMapping(value = "/booking/1.0.0/user")
 @RequiredArgsConstructor
 public class UserController {
 
